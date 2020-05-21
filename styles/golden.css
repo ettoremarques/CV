@@ -1,0 +1,20 @@
+.golden-outfit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    height: 80px;
+    width: 80px;
+    transition: transform .1s;
+}
+
+.golden {
+    position: absolute;
+    height: 150px;
+    top: -70px;
+    left: -20px;
+}
+
+.golden:not(.active) {
+    display: none;
+}
