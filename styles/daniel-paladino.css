@@ -1,0 +1,60 @@
+.scene-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scene {
+    width: 800px;
+    height: 800px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid red;
+}
+
+.map {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: translate(0, 0);
+}
+
+.character.daniel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    height: 80px;
+    width: 80px;
+    transform: translate(-50%, -50%);
+    transition: transform .1s;
+    z-index: 2;
+}
+
+.character {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 80px;
+    width: 80px;
+    transform: translate(0, 0);
+}
+
+.character-outfit {
+    position: absolute;
+    height: 80px;
+    top: -15px;
+    left: -15px;
+}
+
+.dead .character-outfit {
+    height: 60px;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.character-outfit:not(.active) {
+    display: none;
+}
