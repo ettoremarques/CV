@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="photo-gallery"></div>
+
+    <script>
+        var config = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=dc09b0596a0a1cb44aa5c79cfd575691&gallery_id=66911286-72157714206344417&format=json&nojsoncallback=1",
+            "method": "GET",
+            "headers": {}
+        }
+          
+          $.ajax(config).done(function (data) {
+            console.log(data);
+            let photos = data.photos.photo;
+
+            for (let i = 0; i < 6; i++) {
+                $("#photo-gallery").append('<img src="https://farm' + photos[i].farm + '.staticflickr.com/' + photos[i].server + '/' + photos[i].id + '_' + photos[i].secret + '.jpg"/>');
+            }
+          })
+        </script>
+</body>
+</html>
+
+
+  
+  
