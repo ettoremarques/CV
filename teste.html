@@ -10,21 +10,17 @@
     <div id="photo-gallery"></div>
 
     <script>
+      let apikey = "CfNqRVPtVGx2Gy2j3z3nkaLA4Li5orMkjhAd6HEJKV5LAwPtPB";
         var config = {
             "async": true,
             "crossDomain": true,
-            "url": "https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=dc09b0596a0a1cb44aa5c79cfd575691&gallery_id=66911286-72157714206344417&format=json&nojsoncallback=1",
+            "url": `https://api.tumblr.com/v2/blog/amandadeluca.tumblr.com//posts?api_key=${apikey}`,
             "method": "GET",
             "headers": {}
         }
           
           $.ajax(config).done(function (data) {
             console.log(data);
-            let photos = data.photos.photo;
-
-            for (let i = 0; i < 6; i++) {
-                $("#photo-gallery").append('<img src="https://farm' + photos[i].farm + '.staticflickr.com/' + photos[i].server + '/' + photos[i].id + '_' + photos[i].secret + '.jpg"/>');
-            }
           })
         </script>
 </body>

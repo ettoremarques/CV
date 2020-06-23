@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{528:function(n,t,e){"use strict";e.r(t);var r={},c=e(30),l=e(42),o=e.n(l),w=e(335),component=Object(c.a)(r,(function(){var n=this.$createElement,t=this._self._c||n;return t("v-card",[t("h2",[this._v("Following")])])}),[],!1,null,"260da026",null);t.default=component.exports;o()(component,{VCard:w.a})}}]);
