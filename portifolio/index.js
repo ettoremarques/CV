@@ -29,3 +29,8 @@ document.querySelector(".hamburger").addEventListener("click", (e) => {
     document.querySelector(".nav-mobile").classList.add("closed");
   }
 });
+
+
+setTimeout(function () {
+  document.querySelector('#home').classList.add('start')
+}, 4000)

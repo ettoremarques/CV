@@ -1,9 +1,26 @@
+:root {
+  --middieBlue: #92dce5;
+  --gunmetal: #2b303a;
+  --lavander: #eee5e9;
+  --grayWeb: #7c7c7c;
+  --cinnabar: #d64933;
+}
+
 html,
 body,
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+hmtl {
+  font-size: 100%;
+}
+
+body {
+  background-color: var(--lavander);
+  max-width: 100vw;
 }
 
 .pos-relative {
@@ -23,7 +40,7 @@ body,
   position: absolute;
   width: 100%;
   height: 4px;
-  background-color: black;
+  background-color: var(--cinnabar);
   border-radius: 50px;
   top: 0;
 }
@@ -40,8 +57,8 @@ body,
 
 .hamburger.active .stripe,
 .hamburger.closed .stripe {
-    animation-duration: 0.4s;
-    animation-fill-mode: forwards;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
 }
 
 .hamburger.active .stripe:first-child {
@@ -63,49 +80,162 @@ body,
   animation-name: third-stripe-reverse;
 }
 
+.nav-web {
+  display: none;
+}
+
 .nav-mobile {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(0,0,0,.2);
-    justify-content: center;
-    transform: translateX(-100%);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--gunmetal);
+  justify-content: center;
+  transform: translateX(-100%);
+  z-index: 2;
 }
 
 .nav-mobile.active {
-    transform: translateX(0%);
-    transition: transform .3s;
+  transform: translateX(0%);
+  transition: transform 0.3s;
 }
 .nav-mobile.closed {
-    transition: transform .3s;
+  transition: transform 0.3s;
 }
 
 .nav-mobile a {
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--lavander);
 }
 
 .nav-mobile a::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background-color: transparent;
-    border-radius: 2px;
-    margin-right: 10px;
-    display: block;
+  content: "";
+  width: 7px;
+  height: 7px;
+  background-color: transparent;
+  border-radius: 10%;
+  margin-right: 10px;
+  display: block;
 }
 .nav-mobile a.active {
-    background-color: skyblue;
+  border-top: 4px solid var(--cinnabar);
+  border-bottom: 4px solid var(--cinnabar);
 }
 .nav-mobile a.active::before {
-    background-color: blue;
+  background-color: var(--cinnabar);
+}
+
+#home {
+  padding: 2rem;
+  padding-top: 4rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-pic-wrapper {
+  width: 13rem;
+  height: 13rem;
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--gunmetal);
+  margin: 0 auto;
+  border: none;
+  transform: scale(0,0);
+  transition: transform .6s;
+}
+
+#home.start .profile-pic-wrapper {
+  transform: scale(1,1);
+}
+
+.profile-pic {
+  width: 95%;
+  height: 95%;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  border: none;
+}
+
+.profile-pic img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -48%) scale(0.4);
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome span {
+  transition: transform 0.4s, opacity 0.6s;
+}
+
+span.hi {
+  font-size: 1.3rem;
+  align-self: flex-start;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+span.name {
+  font-size: 2rem;
+  align-self: center;
+  margin: 1rem 0;
+  transform: translateX(-125%);
+  opacity: 0;
+}
+
+span.im {
+  font-size: 1.3rem;
+  align-self: flex-end;
+  margin-right: 5rem;
+  transform: translateX(-250%);
+  opacity: 0;
+}
+
+span.career {
+  font-size: 2rem;
+  align-self: flex-end;
+  margin: 1rem 0;
+  transform: translateX(100%);
+  opacity: 0;
+}
+#home.start span.hi,
+#home.start span.name,
+#home.start span.im,
+#home.start span.career {
+  transform: translateX(0%);
+  opacity: 1;
+  transition-delay: .3s;
+}
+
+#home.start span.name {
+  transition-delay: 0.6s;
+}
+
+#home.start span.im {
+  transition-delay: 0.8s;
+}
+
+#home.start span.career {
+  transition-delay: 1.1s;
 }
 
 @keyframes first-stripe {
@@ -150,7 +280,7 @@ body,
 }
 @keyframes second-stripe-reverse {
   100% {
-      opacity: 1;
+    opacity: 1;
   }
   50% {
     opacity: 0;
