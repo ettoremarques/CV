@@ -1,0 +1,171 @@
+html,
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pos-relative {
+  position: relative;
+}
+
+.hamburger {
+  position: absolute;
+  width: 25px;
+  height: 20px;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+}
+
+.stripe {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: black;
+  border-radius: 50px;
+  top: 0;
+}
+
+.stripe:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.stripe:last-child {
+  top: 100%;
+  transform: translateY(-100%);
+}
+
+.hamburger.active .stripe,
+.hamburger.closed .stripe {
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.hamburger.active .stripe:first-child {
+  animation-name: first-stripe;
+}
+.hamburger.active .stripe:nth-child(2) {
+  animation-name: second-stripe;
+}
+.hamburger.active .stripe:last-child {
+  animation-name: third-stripe;
+}
+.hamburger.closed .stripe:first-child {
+  animation-name: first-stripe-reverse;
+}
+.hamburger.closed .stripe:nth-child(2) {
+  animation-name: second-stripe-reverse;
+}
+.hamburger.closed .stripe:last-child {
+  animation-name: third-stripe-reverse;
+}
+
+.nav-mobile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.2);
+    justify-content: center;
+    transform: translateX(-100%);
+}
+
+.nav-mobile.active {
+    transform: translateX(0%);
+    transition: transform .3s;
+}
+.nav-mobile.closed {
+    transition: transform .3s;
+}
+
+.nav-mobile a {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-mobile a::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+    border-radius: 2px;
+    margin-right: 10px;
+    display: block;
+}
+.nav-mobile a.active {
+    background-color: skyblue;
+}
+.nav-mobile a.active::before {
+    background-color: blue;
+}
+
+@keyframes first-stripe {
+  0% {
+  }
+  50% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(200%) rotate(45deg);
+  }
+}
+@keyframes second-stripe {
+  0% {
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes third-stripe {
+  0% {
+  }
+  50% {
+    transform: translateY(-300%);
+  }
+  100% {
+    transform: translateY(-300%) rotate(-45deg);
+  }
+}
+@keyframes first-stripe-reverse {
+  100% {
+  }
+  50% {
+    transform: translateY(200%);
+  }
+  0% {
+    transform: translateY(200%) rotate(45deg);
+  }
+}
+@keyframes second-stripe-reverse {
+  100% {
+      opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 0;
+  }
+}
+@keyframes third-stripe-reverse {
+  100% {
+  }
+  50% {
+    transform: translateY(-300%);
+  }
+  0% {
+    transform: translateY(-300%) rotate(-45deg);
+  }
+}
